@@ -1,0 +1,4 @@
+body {
+  background: url("我是背景.jpg") no-repeat center bottom fixed;
+  background-size: cover;
+}

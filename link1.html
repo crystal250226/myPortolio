@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        background: #f7f7f7;
+      }
+
+      /* 絕對定位 nav */
+      nav {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 10;
+      }
+      nav a i {
+        font-size: 50px;
+        color: #333;
+      }
+
+      /* 圖片貼頂，保持寬度自適應 */
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      /* Figma iframe */
+      iframe {
+        display: block;
+        width: 100%;
+        height: 800px; /* 可依 Figma prototype 高度調整 */
+        border: none;
+        margin-top: 20px; /* 與圖片間距 */
+      }
+
+      /* 保證圖片+iframe垂直排列 */
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="./index.html"><i class="bi bi-house-door"></i></a>
+    </nav>
+
+    <div class="container">
+      <img src="images/A4 - 14.png" alt="展示圖片" />
+      <iframe
+        src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/proto/ghWyCYBblrsLkRMZZ3W5Gh/20--CLOSET-%E4%BD%A0%E7%9A%84Prototype?node-id=444-2787&starting-point-node-id=444-2787"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </body>
+</html>

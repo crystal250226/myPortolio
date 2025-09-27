@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <nav>
+      <div class="logo">
+        <a href="#m1">
+          <h1>Portfolio</h1>
+          <!-- <img style="width: 100px;" src="./images/p10.jpg" alt=""> -->
+        </a>
+      </div>
+      <div class="menu">
+        <a href="#m1">UI/UX</a>
+        <a href="#m2">Redesign</a>
+        <a href="#m3">Graphic</a>
+      </div>
+      <div class="petals-container"></div>
+    </nav>
+
+    <!-- 最外層 -->
+    <div class="wrap">
+      <!-- UI UX -->
+
+      <section id="m1">
+        <div class="col1">
+          <!-- Graphic 區塊放在這裡 -->
+          <div class="graphic portfolio px-1" id="UI UX" data-ref="mix2">
+            <h2 class="title text-center">UI/UX Projects</h2>
+            <p class="text text-center">
+              將商業邏輯轉化為⼈性化的設計，讓每⼀個使⽤者旅程，都能更輕盈且富有美感。
+            </p>
+          </div>
+
+          <!-- 兩個 box -->
+          <a href="./link1.html">
+            <div class="box">
+              <img src="./images/p1.jpg" alt="" />
+              <div class="box-body">
+                <h3>20% closet─你的衣櫥顧問</h3>
+                <p class="small-text">
+                  一款結合⼆⼿衣診斷、交易<br />與社群互動的數位⾐櫥管理APP
+                </p>
+              </div>
+            </div>
+          </a>
+          <a href="./link2.html">
+            <div class="box">
+              <img src="./images/p2.jpg" alt="" />
+              <div class="box-body">
+                <h3>後青春‧好人生</h3>
+                <p class="small-text">
+                  一款提供熟齡族群依興趣與地區<br />媒合課程、同好圈的⼀站式平台
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- 選單2 -->
+      <section id="m2">
+        <div class="graphic portfolio px-1" id="UI UX" data-ref="mix2">
+          <h2 class="title text-center">Redesign Projects</h2>
+          <p class="text text-center">
+            洞察使用者痛點需求，將既有產品轉化為更直覺、美觀且具商業價值的全新體驗
+          </p>
+        </div>
+
+        <!-- 一列二欄 -->
+        <div class="col2">
+          <a href="./link3.html">
+            <div class="box">
+              <!-- 沒有圖 -->
+              <!-- <div class="noPic">施工中（寬度300）</div> -->
+              <!-- 有圖 -->
+              <img src="./images/p3.jpg" alt="" />
+
+              <div class="box-body">
+                <h3>圖片標題</h3>
+                <p class="small-text">
+                  圖片內容說明區圖片內容說明區圖片內容說明區
+                </p>
+              </div>
+            </div>
+          </a>
+
+          <a href="./link4.html">
+            <div class="box">
+              <img src="./images/p3.jpg" alt="" />
+              <div class="box-body">
+                <h3>圖片標題</h3>
+                <p class="small-text">
+                  圖片內容說明區圖片內容說明區圖片內容說明區
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- 選單三 -->
+      <section id="m3">
+        <div class="graphic portfolio px-1" id="UI UX" data-ref="mix2">
+          <h2 class="title text-center">Graphic design</h2>
+          <p class="text text-center">
+            童趣插畫結合溫暖色系，打造兼具品牌感與高互動性的吸睛視覺
+          </p>
+        </div>
+        <!-- 一列三欄 -->
+        <div class="col3">
+          <a href="./link5.html">
+            <div class="box">
+                   <img src="./images/p3.png" alt="" />
+              <div class="box-body">
+                <h3>社群行銷圖</h3>
+                <p class="small-text">
+                  圖片內容說明區圖片內容說明區圖片內容說明區
+                </p>
+              </div>
+            </div>
+          </a>
+          <div class="box">
+              <a href="./link6.html">
+         <img src="./images/p4.png" alt="" />
+            <div class="box-body">
+              <h3>廣告Banner圖</h3>
+              <p class="small-text">
+                圖片內容說明區圖片內容說明區圖片內容說明區
+              </p>
+            </div>
+          </div>
+          </a>
+          <div class="box">
+            <a href="./link7.html">
+            <img src="./images/p6.jpg" alt="" />
+            <div class="box-body">
+              <h3>圖片標題</h3>
+              <p class="small-text">
+                圖片內容說明區圖片內容說明區圖片內容說明區
+              </p>
+            </div>
+          </div>
+          </a>
+        </div>
+      </section>
+    </div>
+    <!-- 花瓣容器 -->
+    <div class="petals-container"></div>
+
+    <!-- 引入 JS -->
+    <script src="petals.js"></script>
+
+    <script>
+      function rand(min, max) {
+        return Math.random() * (max - min) + min;
+      }
+      function createPetal() {
+        const p = document.createElement("div");
+        p.classList.add("petal");
+        // 其餘設定...
+        document.querySelector(".petals-container").appendChild(p);
+      }
+      setInterval(createPetal, 300);
+    </script>
+
+    <snowfall></snowfall>
+    <script src="petals.js"></script>
+  </body>
+</html>

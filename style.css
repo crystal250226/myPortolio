@@ -1,0 +1,298 @@
+/* 字體 */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
+body {
+  font-family: "Noto Sans TC", "Roboto";
+}
+.petal {
+  position: absolute;
+  top: -50px; /* 剛開始在視窗上方看不見的地方 */
+  background-image: url("/images/petal.png"); /* 用你準備的花瓣圖片 */
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 30px;
+  opacity: 0.8;
+  will-change: transform, opacity;
+  /* 動畫 */
+  animation-name: fall, sway, rotate;
+  animation-duration: var(--fall-duration), var(--sway-duration),
+    var(--rotate-duration);
+  animation-timing-function: linear, ease-in-out, ease-in-out;
+  animation-iteration-count: infinite; /* 或只一次再移除 */
+}
+
+/* 落下動畫 */
+@keyframes fall {
+  0% {
+    transform: translateY(-100px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh); /* 下落至畫面底部下面 */
+    opacity: 0.5;
+  }
+}
+
+/* 左右擺動動畫 */
+@keyframes sway {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(30px); /* 也可負值 */
+  }
+}
+
+/* 旋轉動畫 */
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background: url("我是背景.jpg") no-repeat center bottom fixed;
+  background-size: cover;
+}
+
+/* 選單 */
+nav {
+  background-color: #35979c;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* 確保比其他區塊高 */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 可選：增加層次感 */
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+nav .menu a {
+  margin: 0 10px;
+  font-size: 20px;
+}
+
+.wrap {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+section {
+  height: 100vh;
+  margin-bottom: 20px;
+  padding-top: 150px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.col1,
+.col2,
+.col3 {
+  display: flex;
+  /* 左右貼邊，其餘平均分配 */
+  /* justify-content: space-between; */
+  justify-content: center;
+  flex-wrap: wrap;
+  /*啟動換行*/
+}
+
+.box {
+  background-color: #ffffff;
+  width: 300px;
+  margin-bottom: 50px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.............
+/* box 整體設定 */
+.box {
+  width: 300px; /* 可依需求調整 */
+  margin: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column; /* 垂直排列圖片 + 文字 */
+  justify-content: flex-start; /* 文字在圖片下方靠上 */
+  align-items: center; /* 水平置中 */
+  text-align: center; /* 文字水平置中 */
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* box 內圖片置中 */
+.box img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* box-body 文字置中 */
+.box-body {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* 垂直置中文字 */
+  align-items: center; /* 水平置中文字 */
+  text-align: center;
+}
+
+/* 可選：標題與文字間距 */
+.box-body h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.2em;
+}
+
+.box-body p {
+  margin: 0;
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+.noPic {
+  background-color: #333;
+  color: #fff;
+  width: 100%;
+  height: 200px;
+  line-height: 200px;
+  text-align: center;
+}
+
+/* 圖片設定 */
+.box img {
+  width: 100%;
+}
+
+/* 圖片下方的內容區 */
+.box-body {
+  padding: 10px;
+}
+
+/* box標題 */
+.box-body h2 {
+  text-align: center;
+  margin-bottom: 3px;
+}
+
+/* box段落 */
+.box-body p {
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+a {
+  color: #000000;
+  text-decoration: none;
+}
+a:hover .box-body {
+  background-color: #35979c;
+  color: #ffffff;
+}
+
+.petals-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* 這樣不擋點擊事件 */
+  overflow: hidden;
+  z-index: 999; /* 看你要放前景還是背景 */
+}
+
+/* 捲軸 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: #8fc6c5;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #35979c;
+  border-radius: 100px;
+}
+
+.col1 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* 水平置中整個內容 */
+  position: relative;
+}
+
+/* Graphic 區塊樣式 */
+.graphic {
+  flex-basis: 100%; /* 讓它佔滿整列，置中在兩個 box 上方 */
+  text-align: center;
+  margin-bottom: 20px; /* 與下方 box 保持距離，可調整 */
+}
+
+.graphic h2 {
+  font-size: 28px;
+  margin: 0 0 10px;
+}
+
+.graphic p {
+  max-width: 600px; /* 文字寬度可視需求調整 */
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+p.small-text {
+  font-size: 14px !important;
+  line-height: 1.4;
+  letter-spacing: 0.5px;
+}
+
+snowfall {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 999;
+}
+
+snowflake {
+  position: absolute;
+  top: -40px;
+  font-size: 24px;
+  color: #fff;
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-40px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0.4;
+  }
+}
