@@ -96,9 +96,12 @@ nav .menu a {
   margin-left: auto;
   margin-right: auto;
   background-color: rgba(255, 255, 255, 0.5);
+  min-height: 100vh; /* 起碼與視窗一樣高 */
+  padding-bottom: 50px; /* 預留下方空間 */
+  box-sizing: border-box; /* 內距計算在寬高內 */
 }
 section {
-  height: 100vh;
+  height: auto;
   margin-bottom: 20px;
   padding-top: 150px;
   padding-left: 50px;
