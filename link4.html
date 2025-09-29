@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Fireflies Effect</title>
+    <link rel="stylesheet" href="link4.css" />
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        background: #1a0b37; /* 或你要的背景色 */
+        overflow: hidden;
+      }
+      canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none; /* 讓 canvas 不影響滑鼠事件 */
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="fireflies"></canvas>
+
+    <script>
+      const canvas = document.getElementById("fireflies");
+      const ctx = canvas.getContext("2d");
+
+      let width = (canvas.width = window.innerWidth);
+      let height = (canvas.height = window.innerHeight);
+
+      window.addEventListener("resize", () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      });
+
+      class Firefly {
+        constructor() {
+          this.reset();
+        }
+        reset() {
+          this.x = Math.random() * width;
+          this.y = Math.random() * height;
+          this.vx = (Math.random() - 0.5) * 0.5;
+          this.vy = (Math.random() - 0.5) * 0.5;
+          this.radius = Math.random() * 2 + 1;
+          this.alpha = Math.random();
+          this.alphaChange = Math.random() * 0.02 - 0.01;
+        }
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+          this.alpha += this.alphaChange;
+
+          // 邊界檢查
+          if (this.x < 0 || this.x > width || this.y < 0 || this.y > height) {
+            this.reset();
+          }
+          if (this.alpha <= 0 || this.alpha >= 1) {
+            this.alphaChange *= -1;
+          }
+        }
+        draw() {
+          ctx.save();
+          ctx.globalAlpha = this.alpha;
+          ctx.fillStyle = "#FFD700";
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.restore();
+        }
+      }
+
+      const fireflies = [];
+      const num = 100; // 螢火蟲數量，可調
+      for (let i = 0; i < num; i++) {
+        fireflies.push(new Firefly());
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+        for (let f of fireflies) {
+          f.update();
+          f.draw();
+        }
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+    </script>
+  </body>
+</html>
