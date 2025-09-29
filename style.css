@@ -112,19 +112,15 @@ section {
 .col2,
 .col3 {
   display: flex;
-  /* 左右貼邊，其餘平均分配 */
-  /* justify-content: space-between; */
-  justify-content: center;
   flex-wrap: wrap;
-  /*啟動換行*/
+  justify-content: center;
+  gap: 20px; /* 建議用 gap 取代 margin */
 }
 
 .box {
-  background-color: #ffffff;
-  width: 300px;
-  margin-bottom: 50px;
-  margin-left: 10px;
-  margin-right: 10px;
+  flex: 1 1 280px; /* 最小280px，最大自動分配 */
+  max-width: 300px; /* 不超過300px */
+  margin: 0; /* 由 gap 控制間距 */
 }
 
 .............
