@@ -405,17 +405,17 @@ snowflake {
 
 /* 十月八日成功版 */
 
-/* 桌面版 */
-@media (min-width: 769px) {
-  .mobile-menu {
-    display: none;
-  }
-}
-
 /* 手機版 */
 @media (max-width: 768px) {
   .mobile-menu {
     display: flex;
+  }
+}
+
+/* 桌面版 */
+@media (min-width: 769px) {
+  .mobile-menu {
+    display: none;
   }
 }
 
