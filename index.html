@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="專注於UI/UX、Redesign與品牌視覺整合的設計作品集，包含20%closet、後青春好人生等專案。" >
       <!-- 主要 favicon：SVG -->
   <link rel="icon" href="favicon.png" type="image/svg+xml">
 
@@ -24,6 +25,7 @@
   </head>
 
   <body>
+
     <nav>
       <div class="logo">
         <a href="#m1">
@@ -32,16 +34,65 @@
         </a>
       </div>
       <div class="menu">
+        <a href="#m0">關於我</a>
         <a href="#m1">UI/UX</a>
         <a href="#m2">Redesign</a>
         <a href="#m3">Graphic</a>
       </div>
+        <!-- 漢堡按鈕 -->
+     <div class="hamburger" id="hamburger">
+         <span></span>
+         <span></span>
+        <span></span>
+       </div>
+
       <div class="petals-container"></div>
+      
+
+
+      
     </nav>
+
+<!-- 1007 -->
+<div class="mobile-menu">
+  <a href="#m0">關於我</a>
+  <a href="#m1">UI/UX Projects</a>
+  <a href="#m2">Redesign Projects</a>
+  <a href="#m3">Graphic Design</a>
+</div>
+<div class="overlay"></div>
+
 
     <!-- 最外層 -->
     <div class="wrap">
       <!-- UI UX -->
+
+     <section id="m0">
+  <div class="col0">
+    <!-- Graphic 區塊 -->
+    <div class="graphic portfolio px-1">
+      <h2 class="title text-center">關於我</h2>
+  
+    </div>
+
+    <!-- 兩個 box 並排 -->
+    <a href="./link1.html">
+      
+     <div class="avatar">
+  <img src="images/example.png" alt="頭像">
+</div>
+
+
+    </a>
+    <div class="graphic portfolio px-1" id="UI UX" data-ref="mix2">
+    <p class="text text-center">
+        我是王譽潔，一名具備跨領域整合能力的UI/UX實踐者，擅長將使用者洞察轉化為具體設計與專案成果。雖非設計本科出身，卻始終以設計思考為核心，保持對世界的好奇與探索。面對問題時，我習慣從使用者與市場的角度出發，挖掘背後真實的需求與潛在機會。我相信，唯有持續學習與勇於嘗試，才能不斷創造新的可能。
+       
+      </p>
+   <div>
+  </div>
+</section>
+<!----------------------------------------- 分隔線---------------------------------------------- -->
 
       <section id="m1">
         <div class="col1">
@@ -169,6 +220,8 @@
     <!-- 花瓣容器 -->
     <div class="petals-container"></div>
 
+
+
     <!-- 引入 JS -->
     <script src="petals.js"></script>
 
@@ -187,5 +240,7 @@
 
     <snowfall></snowfall>
     <script src="petals.js"></script>
+    <!-- index.html 最底部 -->
+<script src="hamburger.js"></script>
   </body>
 </html>

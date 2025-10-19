@@ -201,7 +201,7 @@ section {
 }
 
 a {
-  color: #000000;
+  color: #157479;
   text-decoration: none;
 }
 a:hover .box-body {
@@ -293,5 +293,166 @@ snowflake {
   100% {
     transform: translateY(100vh) rotate(360deg);
     opacity: 0.4;
+  }
+}
+
+.menu a {
+  position: relative;
+  text-decoration: none;
+  color: #fff;
+}
+
+.menu a:hover {
+  text-decoration: none; /* 移除預設底線 */
+}
+
+.menu a:hover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px; /* 與文字距離 */
+  width: 100%;
+  height: 2px; /* 粗細 */
+  background: #fff;
+  border-radius: 4px; /* 底線圓角 */
+}
+
+/* 響應式設計 */
+
+/* 基本樣式 */
+.menu {
+  display: flex;
+  gap: 20px;
+}
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: rgb(255, 255, 255);
+  border-radius: 2px;
+}
+
+/* 1007 */
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+  }
+
+  /* 🔹手機選單：半透明霧面磨砂感 */
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    backdrop-filter: blur(12px); /* 🔸關鍵：磨砂霧面效果 */
+    background: rgba(255, 255, 255, 0.15); /* 半透明白 */
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 60px 30px;
+    gap: 25px;
+    transition: right 0.4s ease;
+    z-index: 2000; /* 高於所有裝飾動畫 */
+    border-left: 1px solid rgba(255, 255, 255, 0.25);
+  }
+
+  /* 🔹選單開啟動畫：由右往左滑入 */
+  .mobile-menu.active {
+    right: 0;
+  }
+
+  /* 🔹連結樣式 */
+  nav .mobile-menu a {
+    color: #fff !important;
+    text-decoration: none;
+    font-size: 18px;
+    letter-spacing: 1px;
+    transition: color 0.2s ease;
+  }
+  nav .mobile-menu a:hover {
+    color: #c4ffff;
+  }
+
+  /* 🔹背景遮罩（暗色半透明） */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(176, 176, 176, 0.4);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1500;
+  }
+  .overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+/* 十月八日成功版 */
+
+/* 桌面版 */
+@media (min-width: 769px) {
+  .mobile-menu {
+    display: none;
+  }
+}
+
+/* 手機版 */
+@media (max-width: 768px) {
+  .mobile-menu {
+    display: flex;
+  }
+}
+
+/* 大頭照 */
+.avatar {
+  width: 200px; /* 圓形直徑 */
+  height: 200px;
+  border-radius: 50%; /* 變成圓形 */
+  overflow: hidden; /* 隱藏超出圓形的部分 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f0f0f0; /* 預設背景，可省略 */
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 裁切保持比例，填滿容器 */
+  object-position: center top; /* 調整裁切範圍在上半部 */
+}
+
+/* m0 區塊兩個 box 平行排列 */
+.col0 {
+  display: flex; /* 使用 flex 排列 */
+  justify-content: center; /* 水平置中 */
+  align-items: flex-start; /* 頂部對齊 */
+  gap: 20px; /* 水平間距 */
+  flex-wrap: wrap; /* 寬度不足時換行 */
+  margin-top: 30px;
+}
+
+/* 響應式：手機版上下排列 */
+@media (max-width: 768px) {
+  .col0 {
+    flex-direction: column; /* 上下排列 */
+    align-items: center; /* 垂直置中 */
+    gap: 15px; /* 垂直間距 */
   }
 }

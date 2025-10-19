@@ -2,3 +2,7 @@ body {
   background: url("background.jpg") no-repeat center bottom fixed;
   background-size: cover;
 }
+/* 捲軸 */
+::-webkit-scrollbar {
+  width: 8px;
+}

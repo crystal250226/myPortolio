@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+    <style>
+      /* Navbar */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: teal;
+        padding: 10px 20px;
+      }
+
+      .logo {
+        font-size: 20px;
+        font-weight: bold;
+        color: white;
+      }
+
+      .nav-links a {
+        margin: 0 10px;
+        color: white;
+        text-decoration: none;
+      }
+
+      /* 漢堡按鈕 */
+      .hamburger {
+        display: none;
+        font-size: 28px;
+        color: white;
+        cursor: pointer;
+        user-select: none;
+        z-index: 1001;
+      }
+
+      /* 手機版右側滑出選單 */
+      .mobile-menu {
+        position: fixed;
+        top: 0;
+        right: -250px; /* 初始隱藏在螢幕外 */
+        width: 250px;
+        height: 100%;
+        background: teal;
+        display: flex;
+        flex-direction: column;
+        padding-top: 60px;
+        transition: right 0.4s ease-in-out; /* 由右滑入 */
+        z-index: 1000;
+      }
+
+      .mobile-menu a {
+        padding: 15px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        color: white;
+        text-decoration: none;
+      }
+
+      .mobile-menu.show {
+        right: 0; /* 顯示 */
+      }
+
+      /* RWD 設定 */
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none; /* 隱藏桌面導覽 */
+        }
+        .hamburger {
+          display: block; /* 顯示漢堡 */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">Portfolio</div>
+
+      <!-- 桌面版導覽 -->
+      <nav class="nav-links">
+        <a href="#">UI/UX</a>
+        <a href="#">Redesign</a>
+        <a href="#">Graphic</a>
+      </nav>
+
+      <!-- 漢堡選單 -->
+      <div class="hamburger" onclick="toggleMenu()">☰</div>
+    </header>
+
+    <!-- 手機版右側選單 -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#">UI/UX</a>
+      <a href="#">Redesign</a>
+      <a href="#">Graphic</a>
+    </div>
+
+    <script>
+      function toggleMenu() {
+        document.getElementById("mobileMenu").classList.toggle("show");
+      }
+    </script>
+  </body>
+</html>
